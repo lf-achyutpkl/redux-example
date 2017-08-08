@@ -3,13 +3,14 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import reducers from './reducers'
-import App from './components/App/AppContainer'
+
+import Routes from './routes';
 
 let store = createStore(reducers)
 
 render(
   <Provider store={store}>
-    <App />
+    {Routes}
   </Provider>,
   document.getElementById('root')
 )
