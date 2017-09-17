@@ -14,6 +14,7 @@ class TextInput extends Component {
 
 
   render(){
+    console.log('on submit: ', this.props.siteData)
     return(
       <div>
         <label>
@@ -23,8 +24,6 @@ class TextInput extends Component {
             value = {this.props.value}
             onChange = {this._handleOnChange} 
             style = {this.props.textInputStyle}
-            minLength = {this.props.minLength} 
-            maxLength = {this.props.maxLength}
           />
         </label>
         { this.state.error &&
@@ -35,6 +34,8 @@ class TextInput extends Component {
   }
 
   _handleOnChange = (event) => {
+    let data = event.target.value;
+    console.log(this.props.validations);
     this.props.onChange(event.target.value);
   }
 

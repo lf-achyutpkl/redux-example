@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from '../../logo.svg';
 import '../../App.css';
+import Form from '../Form';
+import TextInput from '../Input';
 
 import * as httpUtils from '../../utils/httpUtils';
 
@@ -26,6 +28,19 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <div className="App-intro">
+          <Form onSubmit={() => console.log('asdf')}>
+            <TextInput 
+            type="text" 
+            onChange={(text) => console.log(text)}
+            validations={{maxLength: 10, minLength: 5}}
+            />
+            <TextInput 
+            type="text" 
+            onChange={(text) => console.log(text)}
+            validations={{maxLength: 10, minLength: 5}}
+            />
+            <input type="submit" value="send"/>
+          </Form>
           {
             this.props.posts && this.props.posts.map(post => <div key={post.id}>{post.id} => {post.title}</div>)
           }
