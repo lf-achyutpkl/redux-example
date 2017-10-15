@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {MenuAnchor, Menu, MenuItem, MenuDivider, Button} from 'react-mdc-web/lib';
+import SimpleForm from '../ReduxForm/SimpleForm';
 
 class Dashboard extends Component{
   constructor(){
@@ -13,34 +13,10 @@ class Dashboard extends Component{
   render() {
     return (
       <div>
-        <Button compact
-          onClick={() => this.setState({open: true})} 
-        >
-         Show menu 
-      </Button> 
-        <MenuAnchor>
-        <Menu
-          open={this.state.open}
-          onClose={() => this.setState({open: false})}
-        >
-          <MenuItem>
-            Andromeda
-          </MenuItem>
-          <MenuItem>
-            Black Eye Galaxy
-          </MenuItem>
-          <MenuItem>
-            Bode's Galaxy
-          </MenuItem>
-          <MenuItem>
-            Cartwheel Galaxy
-          </MenuItem>
-          <MenuDivider/>
-          <MenuItem>
-            Cosmos Redshift 7
-          </MenuItem>
-        </Menu>
-      </MenuAnchor> 
+        <div style={{ padding: 15 }}>
+          <h2>Simple Form</h2>
+          <SimpleForm onSubmit={(data) => console.log(data)} />
+      </div>
     </div>
     );
   }
